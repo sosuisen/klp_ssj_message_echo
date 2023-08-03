@@ -32,9 +32,7 @@ public class PingServer {
 	// クライアントからメッセージを受信したとき
 	@OnMessage
 	public void onMessage(String mes, Session session) {
-		// session はこのクライアントとサーバのセッション
 		try {
-			// セッションから接続先のクライアントを取得してテキスト送信
 			session.getBasicRemote().sendText(mes);
 		} catch (IOException e) {
 			e.printStackTrace();
