@@ -13,8 +13,8 @@ import jakarta.websocket.server.ServerEndpoint;
 import lombok.extern.java.Log;
 
 @Log
-@ServerEndpoint("/ping")
-public class PingServer {
+@ServerEndpoint("/echo")
+public class EchoServer {
 	// クライアントから接続されたとき
 	@OnOpen
 	public void onOpen(Session session) {
@@ -25,7 +25,6 @@ public class PingServer {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		// 接続元のIPアドレスとURLをログで表示する
 		log.log(Level.INFO, "onOpen");
 	}
 
@@ -37,19 +36,19 @@ public class PingServer {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		log.log(Level.INFO, "onMessage");
 	}
 	
 	// エラーが発生したとき
     @OnError
     public void onError(Session session, Throwable e) {
-		e.printStackTrace();
+    	log.log(Level.SEVERE, "onError: " + e.toString(), e);
     }
 
 	// クライアントから切断されたとき
 	@OnClose
 	public void onClose(Session session, CloseReason reason) {
 		// 切断された理由をコンソールへ表示
-		System.out.print(reason);
+		log.log(Level.INFO, "onClose: " + reason.toString());
 	}
-	
 }

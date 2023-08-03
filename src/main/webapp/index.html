@@ -2,10 +2,10 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Pingアプリ</title>
+	<title>Echoアプリ</title>
 </head>
 <body>
-	<h1>WebSocketを用いたPingアプリ</h1>
+	<h1>WebSocketを用いたEchoアプリ</h1>
 	<input id="message" type="text" placeholder="ここにメッセージを入力してEnter" size="50" />
 	<button id="sendBtn">送信</button>
 	<br />
@@ -13,7 +13,7 @@
 	<br />
 	<textarea id="chatArea" cols="50" rows="20"></textarea>
 	<script type="text/javascript">
-		const url = 'ws://localhost:8080/message-ping/ping';
+		const url = 'ws://localhost:8080/message-echo/echo';
 
 		let ws = null;
 
