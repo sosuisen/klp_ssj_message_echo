@@ -21,7 +21,7 @@ public class EchoServer {
 		// session はこのクライアントとサーバのセッション
 		try {
 			// セッションから接続先のクライアントを取得してテキスト送信
-			session.getBasicRemote().sendText("[Welcome! from PingServer]");
+			session.getBasicRemote().sendText("[Welcome! from EchoServer]");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
