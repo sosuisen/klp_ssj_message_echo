@@ -36,6 +36,7 @@ public class EchoServer {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 		log.log(Level.INFO, "onMessage");
 	}
 	
@@ -45,10 +46,10 @@ public class EchoServer {
     	log.log(Level.SEVERE, "onError: " + e.toString(), e);
     }
 
-	// クライアントから切断されたとき
+	// WebSocketが閉じたとき
 	@OnClose
 	public void onClose(Session session, CloseReason reason) {
-		// 切断された理由をコンソールへ表示
+		// 閉じた理由をコンソールへ表示
 		log.log(Level.INFO, "onClose: " + reason.toString());
 	}
 }
